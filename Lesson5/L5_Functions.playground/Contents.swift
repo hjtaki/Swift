@@ -51,7 +51,7 @@ let stringToReverse = "Mutable or Immutable? That is the question."
 
 func reverseString(_ stringToReverse: String) {
     var reversedString = ""
-    for character in stringToReverse.characters {
+    for character in stringToReverse {
         reversedString = "\(character)" + reversedString
     }
     print(reversedString)
@@ -87,9 +87,58 @@ placeFirstLetterLast("Mom")
 //: Example 3 - filterByYear
 
 class MovieArchive {
+    
 }
 
 var aiThemedMovies = ["Metropolis":1927, "2001: A Space Odyssey":1968, "Blade Runner":1982, "War Games" : 1983, "Terminator": 1984, "The Matrix":1999, "A.I.":2001, "Her": 2013, "Ex Machina":2015]
 
 
+aiThemedMovies.filter { (movie) -> Bool in
+    movie.value > 2000
+}
+aiThemedMovies.filter { (movie) in
+    movie.value > 2000
+}
+aiThemedMovies.filter { $0.value > 2000 }
 
+
+
+var filtered:[String] = []
+
+for (title, year) in aiThemedMovies{
+    if(year > 2000){
+        filtered.append(title)
+    }
+    
+}
+print(filtered)
+
+
+
+func filterFriends(_ friends: [String], logic:(String) -> Bool) ->[String]{
+    var filtered : [String] = []
+    for friend in friends{
+        if logic(friend){
+            filtered.append(friend)
+        }
+    }
+    return filtered
+    
+}
+
+var friends = ["Javier","Jintak","Kenta","Rei","Marcelo","Juan","Chin", "Emre", "Charles"]
+
+
+func unFriendLogic(friend: String) -> Bool{
+    if(friend.count < 5){
+        return false
+    }
+    return true
+}
+
+//var realFriends = filterFriends(friends, logic: unFriendLogic)
+//print(realFriends)
+
+
+var realFriends = filterFriends(friends) {$0.count < 5}
+print(realFriends)
