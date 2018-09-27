@@ -12,7 +12,7 @@ enum Aunties {
 }
 
 enum AmericanLeagueWest: String {
-    case athletics = "Oakland"
+    case athletics = "Oakland"  //raw value
     case astros = "Houston"
     case angels = "Los Angeles"
     case mariners = "Seattle"
@@ -54,6 +54,8 @@ struct PictureFrame {
     }
 }
 
+var pic = PictureFrame(width: 2, height: 3, thickness: 4)
+pic.area
 //: Structs get memberwise initializers automatically
 var familyReunionFrame = PictureFrame(width: 10, height: 8, thickness: 1.5)
 familyReunionFrame.area

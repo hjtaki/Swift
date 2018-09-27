@@ -6,6 +6,14 @@ protocol DirtyDeeds {
 }
 
 class Minion: DirtyDeeds {
+    func cheat() {
+        <#code#>
+    }
+    
+    func steal() {
+        <#code#>
+    }
+    
     var name: String
     
     init(name:String) {
@@ -27,25 +35,29 @@ protocol Souschef {
     func rinse(_ vegetable:String) -> String
 }
 
-var deviousDinnerCrew = DinnerCrew(members: [Minion]())
+var deviousDinnerCrew = DinnerCrew(members: [Souschef]())
 
 // Problem 3
 protocol DogWalker {
     func throwBall(_ numberOfTimes:Int) -> Int
     func rubBelly()
+    
 }
 
 class Neighbor: DogWalker {
+    func rubBelly() {
+        print("Rub rub")
+    }
     
-    func throwBall(_ numberOfTimes:Int) {
+    func throwBall(_ numberOfTimes:Int) -> Int{
         var count = 0
         while count < numberOfTimes {
             print("Go get it!")
             count += 1
         }
+        return count
+        
     }
-    
-    func rubBelly() {
-        print("Rub rub")
-    }
+
+
 }
